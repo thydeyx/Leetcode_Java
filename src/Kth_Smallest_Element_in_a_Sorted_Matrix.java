@@ -23,8 +23,9 @@ class Solution {
         int l = matrix[0][0];
         int r = matrix[n - 1][n - 1];
         while(l <= r){
-            int mid = (l + r) >> 1;
+            int mid = l + (r - l) / 2; //(l + r) >> 1有可能越界
             int num = getNum(matrix, mid);
+            System.out.println(mid);
             if(num < k){
                 l = mid + 1;
             }else{
@@ -40,12 +41,13 @@ public class Kth_Smallest_Element_in_a_Sorted_Matrix {
 
     public static void main(String args[]) {
         Solution s = new Solution();
-        int [][]matrix = {{ 1,  5,  9},
+/*        int [][]matrix = {{ 1,  5,  9},
                 {10, 11, 13},
                 {12, 13, 15}
-        };
+        };*/
 
-        int k = 8;
+        int [][]matrix = {{200000000}};
+        int k = 1;
         System.out.println(s.kthSmallest(matrix, k));
     }
 }
