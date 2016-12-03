@@ -6,6 +6,7 @@ import java.util.Comparator;
 
 /**
  * Created by tanghanyi on 2016/11/28.
+ *  贪心算法 根据末尾节点排序
  */
 public class Solution {
     class PointComprator implements Comparator {
@@ -15,9 +16,11 @@ public class Solution {
             int []p1 = (int [])o1;
             int []p2 = (int [])o2;
             if (p1[1] < p2[1]) return -1;
-            else {
+            else if(p1[1] == p2[1]){
                 if (p1[0] < p2[0]) return -1;
                 else return 1;
+            }else{
+                return 1;
             }
         }
     }
